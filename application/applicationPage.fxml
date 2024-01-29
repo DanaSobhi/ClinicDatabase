@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1040.0" style="-fx-background-color: #b6f0df;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AppointmentsDashboardController">
+    <tabs>
+        <Tab closable="false" text="Dash Board">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #66CDAA;">
+                    <children>
+                        <VBox layoutX="27.0" layoutY="37.0" prefHeight="270.0" prefWidth="536.0" style="-fx-background-color: #FDF5E6; -fx-background-radius: 15;">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="18.0" prefWidth="558.0" text="Last 30 Patients visits'">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TableView fx:id="lastPatientsTable" prefHeight="245.0" prefWidth="595.0">
+                                    <columns>
+                                        <TableColumn fx:id="patientId" prefWidth="75.0" text="PatientID" />
+                                        <TableColumn fx:id="patientName" prefWidth="75.0" text="PatientName" />
+                                        <TableColumn fx:id="specialistId" prefWidth="75.0" text="SpecialistID" />
+                                        <TableColumn fx:id="specialistName" prefWidth="75.0" text="SpecialistName" />
+                                        <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+                                        <TableColumn fx:id="time" prefWidth="75.0" text="Time" />
+                                        <TableColumn fx:id="discription" prefWidth="75.0" text="Description" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                     <VBox layoutX="588.0" layoutY="37.0" prefHeight="270.0" prefWidth="406.0" style="-fx-background-color: #FDF5E6; -fx-background-radius: 15;">
+<!--                            <fx:include source="todays-appointments-table.fxml"/>-->
+
+                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="412.0" text="Today's Appointments">
+                             <font>
+                                 <Font name="System Bold" size="16.0" />
+                             </font>
+                         </Label>
+                         <TableView fx:id="todaysAppointmentsTable" prefHeight="245.0" prefWidth="311.0">
+                             <columns>
+                                 <TableColumn fx:id="_appointmentId" prefWidth="75.0" text="AppointmentID" />
+                                 <TableColumn fx:id="_patientId" prefWidth="75.0" text="PatientID" />
+                                 <TableColumn fx:id="_nutritionistId" prefWidth="75.0" text="NutritionistID" />
+                                 <TableColumn fx:id="_time" prefWidth="75.0" text="Time" />
+                                 <TableColumn fx:id="_status" prefWidth="75.0" text="Status" />
+                             </columns>
+                             <opaqueInsets>
+                                 <Insets />
+                             </opaqueInsets>
+                             <VBox.margin>
+                                 <Insets />
+                             </VBox.margin>
+                         </TableView>
+                     </VBox>
+                  <VBox layoutX="28.0" layoutY="349.0" prefHeight="270.0" prefWidth="534.0" style="-fx-background-color: #FDF5E6; -fx-background-radius: 15;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="534.0" text="Number Of appointments Per Month">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <BarChart fx:id="appointmentsPerMonthChart" prefHeight="250.0" prefWidth="534.0" style="-fx-background-color: #FDF5E6;">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="588.0" layoutY="349.0" prefHeight="270.0" prefWidth="404.0" style="-fx-background-color: #FDF5E6; -fx-background-radius: 15;">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="416.0" text="Cancelled Appointments">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="cancelledAppointmentsTable" prefHeight="250.0" prefWidth="302.0">
+                           <columns>
+                              <TableColumn fx:id="cAppID" prefWidth="106.4000244140625" text="AppointmentID" />
+                              <TableColumn fx:id="cAppPatientID" prefWidth="85.5999755859375" text="PatientID" />
+                              <TableColumn fx:id="cAppNutriID" prefWidth="90.4000244140625" text="NutritionistID" />
+                              <TableColumn fx:id="cAppTime" prefWidth="121.5999755859375" text="Time" />
+                           </columns>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TableView>
+                     </children>
+                  </VBox>
+
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab closable="false" text="Appoitment settings">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #66CDAA;">
+                    <children>
+                        <VBox layoutX="7.0" prefHeight="673.0" prefWidth="158.0" spacing="25.0" style="-fx-background-color: #2E8B57;">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="50.0" prefWidth="163.0" style="-fx-background-color: #3CB371;" text="Appoitment settings:" textAlignment="CENTER" textFill="OLDLACE">
+                                    <font>
+                                        <Font name="Cambria Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <Button mnemonicParsing="false" onMouseClicked="#addNewApp" prefHeight="50.0" prefWidth="160.0" style="-fx-background-color: #FDF5E6; -fx-border-color: #FFE4B5; -fx-border-radius: 2;" text="Arrange appoitment">
+                           <font>
+                              <Font name="Franklin Gothic Demi Cond" size="16.0" />
+                           </font></Button>
+                                <Button mnemonicParsing="false" onMouseClicked="#updateAppointment" prefHeight="50.0" prefWidth="160.0" style="-fx-background-color: #FDF5E6; -fx-border-color: #FFE4B5; -fx-border-radius: 2;" text="Update Appoitment">
+                           <font>
+                              <Font name="Franklin Gothic Demi Cond" size="16.0" />
+                           </font></Button>
+                                <Button mnemonicParsing="false" onMouseClicked="#deleteOldApp" prefHeight="50.0" prefWidth="160.0" style="-fx-background-color: #FDF5E6; -fx-border-color: #FFE4B5; -fx-border-radius: 2;" text="Delete old appoitments">
+                           <font>
+                              <Font name="Franklin Gothic Demi Cond" size="14.0" />
+                           </font></Button>
+                                <Button mnemonicParsing="false" onMouseClicked="#reloadApp" prefHeight="50.0" prefWidth="160.0" style="-fx-background-color: #FDF5E6; -fx-border-color: #FFE4B5; -fx-border-radius: 2;" text="Refresh Data">
+                           <font>
+                              <Font name="Franklin Gothic Demi Cond" size="16.0" />
+                           </font></Button>
+                            </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </opaqueInsets>
+                        </VBox>
+                  <BorderPane fx:id="appoitmentTablePane" layoutX="173.0" layoutY="-5.0" prefHeight="679.0" prefWidth="866.0">
+                     <center>
+                              <VBox fx:id="appoitmentTableBox" prefHeight="647.0" prefWidth="857.0" BorderPane.alignment="CENTER">
+                                  <children>
+                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="857.0" style="-fx-background-color: #FFEFD5;" text="Appointments Table">
+                                          <font>
+                                              <Font name="System Bold" size="16.0" />
+                                          </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                                      </Label>
+                                      <TableView fx:id="appTableT" style="-fx-background-color: #FDF5EF;">
+                                          <columns>
+                                              <TableColumn fx:id="appTableApID" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="106.40000915527344" text="AppointmentID" />
+                                    <TableColumn fx:id="appTablePatID" prefWidth="68.79998779296875" text="PatientID" />
+                                    <TableColumn fx:id="appTableNutriID" prefWidth="100.0" text="NutritionistID" />
+                                    <TableColumn fx:id="appTableDate" prefWidth="92.800048828125" text="Date" />
+                                    <TableColumn fx:id="appTableTime" prefWidth="99.20001220703125" text="Time" />
+                                    <TableColumn fx:id="appTableCost" prefWidth="64.79998779296875" text="Cost" />
+                                    <TableColumn fx:id="appTablePayDate" prefWidth="109.60003662109375" text="PaymentDate" />
+                                    <TableColumn fx:id="appTableBried" prefWidth="130.4000244140625" text="BriefDescription" />
+                                    <TableColumn fx:id="appTableStatus" prefWidth="77.5999755859375" text="StatusID" />
+                                          </columns>
+                                      </TableView>
+                                      <VBox prefHeight="236.0" prefWidth="857.0" spacing="10.0">
+                                          <children>
+                                              <Label prefHeight="35.0" prefWidth="847.0" text="Search a specific Appoitment to modify or delete it." textFill="LINEN">
+                                                  <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                  </font>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                              </Label>
+                                              <TextField fx:id="searchIDText" prefHeight="30.0" prefWidth="673.0" />
+                                              <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#searchApp" prefHeight="40.0" prefWidth="877.0" style="-fx-background-color: #20B2AA; -fx-border-color: #90EE90; -fx-border-radius: 2; -fx-background-radius: 10; -fx-border-radius: 10;" text="Search" textFill="LINEN">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="26.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('https://img.icons8.com/?size=256&amp;id=42848&amp;format=png');" />
+                                       </graphic></Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#deleteApp" prefHeight="40.0" prefWidth="876.0" style="-fx-background-color: #20B2AA; -fx-border-color: #90EE90; -fx-border-radius: 2; -fx-background-radius: 10; -fx-border-radius: 10;" text="Delete Appoitment" textFill="LINEN">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="26.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('https://img.icons8.com/?size=256&amp;id=42858&amp;format=png');" />
+                                       </graphic></Button>
+                                          </children>
+                                          <VBox.margin>
+                                              <Insets />
+                                          </VBox.margin>
+                                          <padding>
+                                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </padding>
+                                      </VBox>
+                                  </children>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </BorderPane.margin>
+                              </VBox>
+                     </center>
+                  </BorderPane>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+      <Tab closable="false" text="Appoitment report">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #66CDAA;">
+               <children>
+                  <VBox layoutX="7.0" layoutY="-2.0" prefHeight="674.0" prefWidth="158.0" spacing="10.0" style="-fx-background-color: #2E8B57;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="174.0" style="-fx-background-color: #3CB371;" text="Generating Report" textFill="OLDLACE">
+                           <font>
+                              <Font name="Cambria Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="50.0" prefWidth="206.0" text="First Date:" textFill="OLDLACE">
+                           <font>
+                              <Font name="Franklin Gothic Demi Cond" size="18.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="firstDate1" prefHeight="35.0" prefWidth="174.0" />
+                        <Label prefHeight="50.0" prefWidth="188.0" text="Second Date:" textFill="OLDLACE">
+                           <font>
+                              <Font name="Franklin Gothic Demi Cond" size="18.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="secondDate2" prefHeight="35.0" prefWidth="197.0" />
+                        <Button mnemonicParsing="false" onMouseClicked="#goToMakeReport" prefHeight="50.0" prefWidth="209.0" style="-fx-background-color: #FDF5E6; -fx-border-color: #FFE4B5; -fx-border-radius: 2;" text="Generate Report">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Franklin Gothic Demi Cond" size="18.0" />
+                           </font></Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <BorderPane layoutX="178.0" layoutY="-6.0" prefHeight="680.0" prefWidth="850.0" style="-fx-background-color: #b6f0df;">
+                     <center>
+                        <AnchorPane prefHeight="676.0" prefWidth="850.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="92.0" layoutY="40.0" prefHeight="230.0" prefWidth="290.0" style="-fx-background-color: #FFEAD2; -fx-background-radius: 15;">
+                                 <children>
+                                    <ImageView fitHeight="69.0" fitWidth="82.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('https://img.icons8.com/?size=256&amp;id=114612&amp;format=png');" />
+                                    <Label fx:id="numOfappMade" alignment="CENTER" prefHeight="199.0" prefWidth="290.0" style="-fx-background-color: #FFEAC2; -fx-background-radius: 10;" text="num">
+                                       <font>
+                                          <Font name="Franklin Gothic Demi Cond" size="24.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="317.0" text="Number of Appoitment Made">
+                                       <font>
+                                          <Font name="Franklin Gothic Demi Cond" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="513.0" layoutY="350.0" prefHeight="230.0" prefWidth="290.0" style="-fx-background-color: #FFEAD2; -fx-background-radius: 15;">
+                                 <children>
+                                    <ImageView fitHeight="69.0" fitWidth="82.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('https://img.icons8.com/?size=256&amp;id=91244&amp;format=png');" />
+                                    <Label fx:id="numOfPatientVisit" alignment="CENTER" prefHeight="199.0" prefWidth="290.0" style="-fx-background-color: #FFEAC2; -fx-background-radius: 10;" text="num">
+                                       <font>
+                                          <Font name="Franklin Gothic Demi Cond" size="24.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="290.0" text="Most visited Patient">
+                                       <font>
+                                          <Font name="Franklin Gothic Demi Cond" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="513.0" layoutY="40.0" prefHeight="230.0" prefWidth="290.0" style="-fx-background-color: #FFEAD2; -fx-background-radius: 15;">
+                                 <children>
+                                    <ImageView fitHeight="69.0" fitWidth="82.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('https://img.icons8.com/?size=256&amp;id=112793&amp;format=png');" />
+                                    <Label fx:id="numOfCost" alignment="CENTER" prefHeight="199.0" prefWidth="497.0" style="-fx-background-color: #FFEAC2; -fx-background-radius: 10;" text="num">
+                                       <font>
+                                          <Font name="Franklin Gothic Demi Cond" size="24.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="296.0" text="Total Cost">
+                                       <font>
+                                          <Font name="Franklin Gothic Demi Cond" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="92.0" layoutY="350.0" prefHeight="230.0" prefWidth="290.0" style="-fx-background-color: #FFEAD2; -fx-background-radius: 15;">
+                                 <children>
+                                    <ImageView fitHeight="69.0" fitWidth="82.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('https://img.icons8.com/?size=256&amp;id=AQKqtEEzVe6p&amp;format=png');" />
+                                    <Label fx:id="nameOfN" alignment="CENTER" prefHeight="199.0" prefWidth="290.0" style="-fx-background-color: #FFEAC2; -fx-background-radius: 10;" text="num">
+                                       <font>
+                                          <Font name="Franklin Gothic Demi Cond" size="24.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="322.0" text="Most nutrisitist worked">
+                                       <font>
+                                          <Font name="Franklin Gothic Demi Cond" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="65.0" fitWidth="66.0" layoutX="14.0" layoutY="601.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('https://img.icons8.com/?size=256&amp;id=110188&amp;format=png');" />
+                              <ImageView fitHeight="65.0" fitWidth="66.0" layoutX="770.0" layoutY="601.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('https://img.icons8.com/?size=256&amp;id=d0Q6fXcETlmD&amp;format=png');" />
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+    </tabs>
+</TabPane>
